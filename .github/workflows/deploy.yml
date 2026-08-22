@@ -1,0 +1,51 @@
+name: Deploy Wiki
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Quartz plugins
+        run: |
+          npx quartz plugin install
+          npx quartz plugin install --from-config
+      - name: Build Quartz community packages
+        run: |
+          git clone --depth 1 https://github.com/quartz-community/utils.git /tmp/quartz-utils
+          git clone --depth 1 https://github.com/quartz-community/types.git /tmp/quartz-types
+          npm ci --prefix /tmp/quartz-utils
+          npm ci --prefix /tmp/quartz-types
+          npm run build --prefix /tmp/quartz-utils
+          npm run build --prefix /tmp/quartz-types
+          cp -r /tmp/quartz-utils/dist node_modules/@quartz-community/utils/dist
+          cp -r /tmp/quartz-types/dist node_modules/@quartz-community/types/dist
+      - run: npx quartz build
+      - name: Ensure custom domain file is present
+        run: test -f public/CNAME || cp content/CNAME public/CNAME
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v4

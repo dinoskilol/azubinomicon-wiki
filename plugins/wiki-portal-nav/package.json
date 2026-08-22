@@ -1,0 +1,33 @@
+{
+  "name": "@azubinomicon/wiki-portal-nav",
+  "version": "0.1.0",
+  "description": "Quartz sidebar portal navigation for the Azubinomicon wiki",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "sideEffects": false,
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "quartz": {
+    "name": "wiki-portal-nav",
+    "displayName": "Wiki Portal Nav",
+    "category": "component",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "defaultEnabled": true,
+    "components": {
+      "WikiPortalNav": {
+        "displayName": "Wiki Portal Nav",
+        "description": "Shows the Azubinomicon logo and a link back to the dashboard",
+        "defaultPosition": "left",
+        "defaultPriority": 5
+      }
+    }
+  }
+}

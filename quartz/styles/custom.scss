@@ -1,0 +1,360 @@
+@use "./variables.scss" as *;
+
+:root {
+  --dashboard-surface: #ffffff;
+  --dashboard-muted-surface: #f2f0ef;
+  --dashboard-border: #dedbd9;
+  --dashboard-sidebar: #f7f5f5;
+  --dashboard-hover: #ece9e7;
+  --dashboard-shadow: 0 18px 45px rgba(22, 20, 19, 0.06);
+}
+
+:root[saved-theme="dark"] {
+  --dashboard-surface: #171717;
+  --dashboard-muted-surface: #1f1f1f;
+  --dashboard-border: #2d2d2d;
+  --dashboard-sidebar: #111111;
+  --dashboard-hover: #242424;
+  --dashboard-shadow: none;
+}
+
+html,
+body {
+  background: var(--dashboard-sidebar);
+}
+
+html {
+  width: auto;
+  overflow-x: clip;
+}
+
+body {
+  letter-spacing: 0;
+  overflow-x: clip;
+}
+
+.page {
+  max-width: none;
+  min-height: 100vh;
+}
+
+.page > #quartz-body {
+  box-sizing: border-box;
+  column-gap: 1.25rem;
+  row-gap: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 1.5rem;
+}
+
+.page > #quartz-body .sidebar {
+  gap: 1rem;
+  padding: 1rem 1rem 1.25rem;
+}
+
+.page > #quartz-body .sidebar.left {
+  background: var(--dashboard-sidebar);
+  border-right: 1px solid var(--dashboard-border);
+}
+
+.page > #quartz-body .sidebar.right {
+  padding-top: 1.5rem;
+}
+
+.center {
+  padding: 1.5rem 0 2.5rem;
+}
+
+.center > article {
+  box-sizing: border-box;
+  max-width: 860px;
+  min-height: calc(100vh - 3rem);
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 0.5rem;
+  background: var(--dashboard-surface);
+  box-shadow: var(--dashboard-shadow);
+}
+
+.center > hr {
+  display: none;
+}
+
+.page-header {
+  max-width: 860px;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+header {
+  margin: 0 0 1rem;
+}
+
+.popover-hint {
+  box-sizing: border-box;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.article-title {
+  margin-top: 0;
+  color: var(--dark);
+  font-size: 2.2rem;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.content-meta {
+  margin-top: 0.35rem;
+  color: var(--gray);
+}
+
+.breadcrumb-container {
+  margin-bottom: 0.75rem;
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.wiki-github-meta {
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  color: var(--gray);
+}
+
+.wiki-github-meta__chip,
+.wiki-github-meta__link,
+.wiki-github-meta__avatar {
+  border-color: var(--dashboard-border);
+  background: var(--dashboard-muted-surface);
+}
+
+.wiki-github-meta__link:hover,
+.wiki-github-meta__avatar:hover {
+  background: color-mix(in srgb, var(--secondary) 9%, var(--dashboard-surface));
+}
+
+.search {
+  max-width: none;
+  min-width: 0;
+  width: 100%;
+}
+
+.search > .search-button {
+  height: 2.25rem;
+  border-color: var(--dashboard-border);
+  border-radius: 0.5rem;
+  background: var(--dashboard-surface);
+  color: var(--darkgray);
+  font-size: 0.9rem;
+  box-shadow: none;
+}
+
+.search > .search-button:hover {
+  border-color: color-mix(in srgb, var(--secondary) 28%, var(--dashboard-border));
+  background: var(--dashboard-hover);
+}
+
+.search > .search-button > p {
+  color: var(--gray);
+}
+
+.flex-component {
+  align-items: center;
+}
+
+.darkmode,
+.readermode {
+  display: inline-grid;
+  place-items: center;
+  width: 2.15rem !important;
+  height: 2.15rem !important;
+  border: 1px solid var(--dashboard-border) !important;
+  border-radius: 0.5rem !important;
+  background: var(--dashboard-surface) !important;
+}
+
+.darkmode:hover,
+.readermode:hover {
+  background: var(--dashboard-hover) !important;
+}
+
+.explorer {
+  min-height: 2rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--dashboard-border);
+}
+
+.explorer {
+  min-height: 2rem;
+}
+
+.explorer.collapsed {
+  flex-basis: 2rem;
+}
+
+.explorer button.desktop-explorer,
+.explorer button.mobile-explorer {
+  min-height: 2rem;
+  overflow: visible;
+}
+
+.explorer button.desktop-explorer h2,
+.explorer button.mobile-explorer h2 {
+  line-height: 1.5;
+  color: var(--dark);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.explorer-content {
+  scrollbar-width: thin;
+}
+
+.explorer-content ul li > a,
+.folder-container div > a,
+.folder-container div > button span {
+  border-radius: 0.45rem;
+  color: var(--darkgray);
+  font-size: 0.9rem;
+  font-weight: 550;
+}
+
+.explorer-content ul li > a {
+  display: block;
+  padding: 0.22rem 0.45rem;
+}
+
+.explorer-content ul li > a:hover,
+.explorer-content ul li > a.active {
+  background: var(--dashboard-hover);
+  color: var(--secondary);
+  opacity: 1;
+}
+
+.folder-container {
+  border-radius: 0.45rem;
+}
+
+.folder-container:hover {
+  background: var(--dashboard-hover);
+}
+
+.folder-container div > a,
+.folder-container div > button {
+  padding: 0.16rem 0.35rem;
+}
+
+.graph,
+.backlinks,
+.toc {
+  padding: 1rem;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 0.5rem;
+  background: var(--dashboard-surface);
+}
+
+.graph h3,
+.backlinks h3,
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
+
+article :is(p, li) {
+  line-height: 1.7;
+}
+
+article :is(h2, h3, h4) {
+  margin-top: 1.7em;
+}
+
+code {
+  border: 1px solid var(--dashboard-border);
+  border-radius: 0.35rem;
+  background: var(--dashboard-muted-surface);
+}
+
+pre {
+  border: 1px solid var(--dashboard-border);
+  border-radius: 0.5rem;
+}
+
+blockquote {
+  border-left-color: var(--secondary);
+  background: var(--dashboard-muted-surface);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.75rem 1rem;
+}
+
+.wiki-portal-nav__logo img {
+  transition: filter 0.15s ease;
+}
+
+:root[saved-theme="dark"] .wiki-portal-nav__logo img {
+  filter: brightness(0) invert(1);
+}
+
+@media all and (max-width: 1200px) {
+  .page > #quartz-body {
+    padding-right: 1rem;
+  }
+
+  .center > article,
+  .page-header,
+  .popover-hint {
+    max-width: none;
+  }
+
+  .center > article {
+    min-height: auto;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .page > #quartz-body {
+    padding: 0 1rem 1.5rem;
+  }
+
+  .page > #quartz-body .center,
+  .page > #quartz-body .sidebar.left,
+  .page > #quartz-body .sidebar.right {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .page > #quartz-body .sidebar.left {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--dashboard-border);
+  }
+
+  .wiki-portal-nav {
+    flex: 1 1 auto;
+    margin: 0;
+  }
+
+  .wiki-portal-nav__dashboard {
+    display: none;
+  }
+
+  .center {
+    padding-top: 1rem;
+  }
+
+  .center > article {
+    padding: 1.25rem;
+  }
+
+  .popover-hint {
+    padding: 0;
+  }
+}
