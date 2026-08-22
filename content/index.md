@@ -34,9 +34,9 @@ Stöbere nach Bereichen oder suche oben nach einem Beruf. Jeder Berufsartikel er
 
 ## Mitmachen
 
-Fehlt etwas oder ist eine Aussage unklar? Lies die Mithilfe-Anleitung in
-[CONTRIBUTING.md](../CONTRIBUTING.md) und eröffne einen Pull Request auf GitHub.
+Fehlt etwas oder ist eine Aussage unklar? Lies die
+[Mithilfe-Anleitung](https://github.com/dinoskilol/azubinomicon-wiki/blob/main/CONTRIBUTING.md)
+und eröffne einen Pull Request auf GitHub.
 Kleine Korrekturen sind genauso willkommen wie neue Erfahrungswerte. Bitte
 kennzeichne persönliche Erfahrungen als solche und nenne Quellen, wenn eine
 Aussage rechtlich oder finanziell relevant ist.
-
