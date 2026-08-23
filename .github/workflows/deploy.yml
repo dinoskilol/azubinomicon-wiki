@@ -35,8 +35,8 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/quartz-community/utils.git /tmp/quartz-utils
           git clone --depth 1 https://github.com/quartz-community/types.git /tmp/quartz-types
-          npm ci --prefix /tmp/quartz-utils
-          npm ci --prefix /tmp/quartz-types
+          npm install --no-audit --no-fund --prefix /tmp/quartz-utils
+          npm install --no-audit --no-fund --prefix /tmp/quartz-types
           npm run build --prefix /tmp/quartz-utils
           npm run build --prefix /tmp/quartz-types
           cp -r /tmp/quartz-utils/dist node_modules/@quartz-community/utils/dist
